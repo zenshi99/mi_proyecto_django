@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 
 # 🗄️ Base de datos para Render (usa DATABASE_URL automáticamente)
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
 
 # 🔐 Validadores de contraseña
