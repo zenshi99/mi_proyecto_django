@@ -1,8 +1,8 @@
 asgiref==3.8.1
 Django==5.2.1
 gunicorn
-mysqlclient==2.2.7
 pillow==11.3.0
 psycopg2-binary==2.9.11
 sqlparse==0.5.3
 tzdata==2025.2
+dj-database-url==1.3.1

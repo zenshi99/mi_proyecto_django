@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import dj_database_url
 
 # 📁 Base del proyecto
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,16 +57,9 @@ TEMPLATES = [
 # 🚀 WSGI
 WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 
-# 🗄️ Base de datos PostgreSQL (Render usa variables de entorno, pero aquí está la versión local)
+# 🗄️ Base de datos para Render (usa DATABASE_URL automáticamente)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mi_proyecto_django',
-        'USER': 'postgres',
-        'PASSWORD': 'rootdb',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 # 🔐 Validadores de contraseña
