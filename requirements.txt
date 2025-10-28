@@ -1,5 +1,6 @@
 asgiref==3.8.1
 Django==5.2.1
+gunicorn
 mysqlclient==2.2.7
 pillow==11.3.0
 psycopg2-binary==2.9.11
