@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Venta</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url("{% static 'inventario/fondo.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .detalle {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .titulo-detalle {
+      font-size: 28px;
+      color: #ffd700;
+      margin-bottom: 20px;
+    }
+
+    .btn-volver {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #ffd700;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .btn-volver:hover {
+      background-color: #e6c200;
+    }
+  </style>
+</head>
+<body>
+  <div class="detalle">
+    <h2 class="titulo-detalle">Registrar nueva venta</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn-volver">💾 Guardar venta</button>
+    </form>
+    <a href="{% url 'admin:index' %}" class="btn-volver">← Ir al panel admin</a>
+  </div>
+</body>
+</html>
