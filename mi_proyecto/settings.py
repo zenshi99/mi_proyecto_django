@@ -1,14 +1,17 @@
 from pathlib import Path
+import os
 
+# 📁 Base del proyecto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# 🔐 Clave secreta (no compartas esto en producción)
 SECRET_KEY = 'django-insecure-nf)5k_#u(pen)^!wb$o9s7$h-929%_4$9up!93z_18+5^l+^9g'
 
-DEBUG = True
-
+# ⚙️ Modo producción
+DEBUG = False
 ALLOWED_HOSTS = ['mi-proyecto-django-5788.onrender.com']
 
-# Aplicaciones instaladas
+# 📦 Aplicaciones instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -16,10 +19,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',  # tu aplicación principal
+    'app',  # Tu aplicación principal
 ]
 
-# Middleware
+# 🧱 Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -30,9 +33,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# 🌐 Configuración de URLs
 ROOT_URLCONF = 'mi_proyecto.urls'
 
-# Configuración de plantillas
+# 🧩 Plantillas
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -49,9 +53,10 @@ TEMPLATES = [
     },
 ]
 
+# 🚀 WSGI
 WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 
-# Base de datos PostgreSQL
+# 🗄️ Base de datos PostgreSQL (Render usa variables de entorno, pero aquí está la versión local)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -63,41 +68,28 @@ DATABASES = {
     }
 }
 
-# Validadores de contraseña
+# 🔐 Validadores de contraseña
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internacionalización
+# 🌎 Internacionalización
 LANGUAGE_CODE = 'es-pe'
 TIME_ZONE = 'America/Lima'
 USE_I18N = True
 USE_TZ = True
 
-# Archivos estáticos
+# 🖼️ Archivos estáticos
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'app' / 'static',
-]
+STATICFILES_DIRS = [BASE_DIR / 'app' / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Archivos multimedia (para imágenes en modelos)
+# 📷 Archivos multimedia
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Clave primaria por defecto
+# 🧬 Clave primaria por defecto
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-DEBUG = False
-ALLOWED_HOSTS = ['tu-app.onrender.com']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
